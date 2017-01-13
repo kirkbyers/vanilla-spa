@@ -1,0 +1,17 @@
+{
+  "name": "coffee-app-thing",
+  "version": "0.0.1",
+  "description": "My coffee app thing",
+  "main": "index.js",
+  "author": "Kirk Byers",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.10",
+    "html-webpack-plugin": "^2.26.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --inline --progress --port 8080"
+  }
+}
