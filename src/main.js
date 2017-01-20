@@ -1,10 +1,24 @@
 import { Router } from './router/index';
 
-console.log('hello world');
+const appRouter = new Router([], '/');
 
-console.log(Router);
+const routes = [
+    {
+        name: 'home',
+        regexRoute: null,
+        handler () {
+            console.log('Home')
+        }
+    },
+    {
+        name: 'about',
+        regexRoute: /about/,
+        handler () {
+            console.log('about');
+        }
+    }
+];
 
-const router1 = new Router({one: 1});
-const router2 = new Router({two: 2});
-
-console.log(router1, router2);
+appRouter.addRoutes(routes);
+appRouter.listen();
+appRouter.listenForLinks();
