@@ -1,3 +1,5 @@
+import {db} from '../../firebase';
+
 class Home {
     constructor () {
         this.selector = '#content';
@@ -5,6 +7,11 @@ class Home {
     }
 
     render () {
+        db.ref('posts').on("value", (snap) => {
+            console.log(snap.val());
+        }, (err) => {
+            console.error(err);
+        });
         document.querySelector(this.selector).innerHTML = this.template;
     }
 }
