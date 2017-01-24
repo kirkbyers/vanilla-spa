@@ -1,4 +1,11 @@
 import { Router } from './router/index';
+import {
+    About,
+    Home
+} from './views';
+
+const homeView = new Home;
+const aboutView = new About;
 
 const appRouter = new Router([], '/');
 
@@ -8,6 +15,7 @@ const routes = [
         regexRoute: null,
         handler () {
             console.log('Home')
+            homeView.render();
         }
     },
     {
@@ -15,10 +23,10 @@ const routes = [
         regexRoute: /about/,
         handler () {
             console.log('about');
+            aboutView.render();
         }
     }
 ];
 
 appRouter.addRoutes(routes);
 appRouter.listen();
-appRouter.listenForLinks();

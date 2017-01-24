@@ -55,6 +55,7 @@ class Router {
         const self = this;
         self.listenForLinks();
         let current = self.getFragment();
+        self.check(current);
         function fn () {
             if(current !== self.getFragment()) {
                 current = self.getFragment();
@@ -89,4 +90,4 @@ class Router {
     }
 }
 
-module.exports.Router = Router;
+export {Router};
