@@ -54,6 +54,7 @@ class Router {
     listen() {
         const self = this;
         self.listenForLinks();
+        self.handleNavigationEvents();
         let current = self.getFragment();
         self.check(current);
         function fn () {
@@ -86,6 +87,12 @@ class Router {
                 }
                 return this;
             })
+        })
+    }
+
+    handleNavigationEvents () {
+        document.querySelector('#content').addEventListener('navigate', (event) => {
+            this.navigate(event.detail);
         })
     }
 }
