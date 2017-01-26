@@ -1,13 +1,18 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractSCSS = new ExtractTextPlugin('styles/index.css');
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/main.js'),
+  entry: {
+    main: path.resolve(__dirname, './src/main.js')
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: 'http://localhost:8080/',
-    filename: 'build.js'
+    filename: '[name].[hash].js'
   },
   module: {
     loaders: [
@@ -29,11 +34,18 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.scss$/,
+        loader: extractSCSS.extract(["css-loader", "sass-loader"])
       }
     ]
   },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, './scss/index.scss')]
+  },
   resolve: {
-    extensions: ['', '.js', '.html']
+    extensions: ['', '.js', '.css', '.scss', '.html']
   },
   devServer: {
     historyApiFallback: true,
@@ -43,26 +55,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
         template: './src/index.html'
-    })
+    }),
+    extractSCSS
   ]
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
 }

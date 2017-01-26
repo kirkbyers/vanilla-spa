@@ -5,6 +5,8 @@ import {
     Login
 } from './views';
 
+import './scss/index.scss';
+
 const homeView = new Home;
 const aboutView = new About;
 const loginView = new Login;
