@@ -17,7 +17,7 @@ class Login {
         const password = document.querySelector('[name="password"]');
         form.addEventListener('submit', (event, x, y) => {
             event.preventDefault();
-            auth.createUserWithEmailAndPassword(email.value, password.value)
+            auth.signInWithEmailAndPassword(email.value, password.value)
                 .then(res => {
                     console.log(res);
                     this.emitNavigateEvent();
