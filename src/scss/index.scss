@@ -1,3 +1,9 @@
+// Define first to use in other imports
+@import 'vars';
+@import './mixins/manifest';
+
+@import 'typography';
+
 body {
     background-color: green;
 }

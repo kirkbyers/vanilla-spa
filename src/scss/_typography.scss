@@ -1,0 +1,13 @@
+body {
+  font-size: calc(1em + 1vw);
+}
+
+p, div, span, a {
+  @include font-size(1);
+}
+
+@for $i from 1 through 5 {
+  h#{$i} {
+    @include font-size((5-$i) * $font-size-scaler);
+  }
+}

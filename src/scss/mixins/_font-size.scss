@@ -1,0 +1,3 @@
+@mixin font-size ($scaler) {
+  font-size: 1em * $scaler;
+}
