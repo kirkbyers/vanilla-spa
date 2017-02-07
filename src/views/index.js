@@ -1,9 +1,9 @@
 import { About } from './about/about.view';
 import { Home } from './home/home.view';
-import { Login } from './login/login.view';
+import { Post } from './post/post.view';
 
 export {
     About,
     Home,
-    Login
+    Post
 }

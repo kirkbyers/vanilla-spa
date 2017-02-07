@@ -2,14 +2,14 @@ import { Router } from './router/index';
 import {
     About,
     Home,
-    Login
+    Post
 } from './views';
 
 import './scss/index.scss';
 
 const homeView = new Home;
 const aboutView = new About;
-const loginView = new Login;
+const postView = new Post;
 
 const appRouter = new Router([], '/');
 
@@ -23,19 +23,11 @@ const routes = [
         }
     },
     {
-        name: 'about',
-        regexRoute: /about/,
+        name: 'post',
+        regexRoute: /^[a-z0-9-]+$/,
         handler () {
-            console.log('about');
-            aboutView.render();
-        }
-    },
-    {
-        name: 'login',
-        regexRoute: /login/,
-        handler () {
-            console.log('login');
-            loginView.render();
+            console.log('Post');
+            postView.render(appRouter.getFragment());
         }
     }
 ];

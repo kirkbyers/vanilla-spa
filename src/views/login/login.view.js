@@ -1,3 +1,4 @@
+// NOTE: This file is no longer used or imported.
 import {auth} from '../../firebase';
 
 class Login {
