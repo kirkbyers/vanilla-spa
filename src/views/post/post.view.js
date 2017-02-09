@@ -14,6 +14,7 @@ class Post {
     try {
       const templateCheck = require(`../../posts/${templateSlug}.html`);
       console.log(templateCheck);
+      this.template = templateCheck;
     } catch (err) {
       console.error(`Post "${templateSlug}" not found or no longer exsists`);
     }
