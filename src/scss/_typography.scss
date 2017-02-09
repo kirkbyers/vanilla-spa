@@ -8,6 +8,6 @@ p, div, span, a {
 
 @for $i from 1 through 5 {
   h#{$i} {
-    @include font-size((5-$i) * $font-size-scaler);
+    @include font-size(pow($font-size-scaler, (5-$i)));
   }
 }

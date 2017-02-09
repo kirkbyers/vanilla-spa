@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  flex-direction: column;
+  > header {
+    @include font-size(pow($font-size-scaler, 3))
+  }
+  > div {
+    display: flex;
+    flex: 1 1 100%;
+
+    > aside {
+      flex: 1 1 auto;
+    }
+    > section {
+      flex: 2 1 auto;
+    }
+  }
+}
