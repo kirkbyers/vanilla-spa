@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
@@ -8,17 +9,14 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: 'http://localhost:8080/',
-    filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
+    publicPath: '/',
+    filename: '[name].[hash].js',
+    chunkFilename: '[id].[hash].chunk.js'
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
-  ],
-
-  devServer: {
-    historyApiFallback: true,
-    stats: 'minimal'
-  }
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('[name].[hash].css'),
+  ]
 });
