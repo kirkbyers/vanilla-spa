@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const commonConfig = require('./webpack.common.js');
 
@@ -26,6 +27,10 @@ module.exports = webpackMerge(commonConfig, {
         test: /\.js$|\.html$/,
         threshold: 10240,
         minRatio: 0.8
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../src/posts'),
+      to: path.resolve(__dirname, '../dist/posts')
+    }])
   ]
 });
