@@ -30,7 +30,7 @@ module.exports = webpackMerge(commonConfig, {
     }),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../src/posts'),
-      to: path.resolve(__dirname, '../docs/posts')
+      to: path.resolve(__dirname, '../dist/posts')
     }])
   ]
 });
