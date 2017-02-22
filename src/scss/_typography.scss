@@ -9,5 +9,15 @@ p, div, span, a {
 @for $i from 1 through 5 {
   h#{$i} {
     @include font-size(pow($font-size-scaler, (5-$i)));
+    margin: 0;
+
+    a {
+      color: $font-primary;
+      text-decoration: none;
+      @include transition(color 0.2s);
+      &:hover {
+        color: $font-hover;
+      }
+    }
   }
 }

@@ -29,7 +29,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
     "build": "rimraf dist && webpack --config config/webpack.build.js --progress --profile --bail",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "rimraf dist && npm run build && firebase deploy"
   },
   "dependencies": {}
 }
