@@ -11,7 +11,7 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../docs'),
     publicPath: '/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
@@ -30,7 +30,7 @@ module.exports = webpackMerge(commonConfig, {
     }),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../src/posts'),
-      to: path.resolve(__dirname, '../dist/posts')
+      to: path.resolve(__dirname, '../docs/posts')
     }])
   ]
 });
