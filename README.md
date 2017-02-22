@@ -30,5 +30,5 @@ yarn install
 
 Run:
 ```
-github-markdown path/to/markdown.md > output.html
+github-markdown path/to/markdown.md > path/to/output.html
 ```
