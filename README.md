@@ -2,10 +2,10 @@
 
 ##Intro
 
-The purpose of this project is to create and share static articles
+The purpose of this project is an excercise in creating and sharing static articles
 without client-side dependencies.
 
-This project It is highly opininated. Posts are originally writen in markdown,
+Posts are originally writen in markdown,
 and stored in `src/markdown`. They are then converted to html when 
 ready for publication. The resulting html is moved to `src/posts`,
 and is displayed when navigated to `baseurl.com/{:post-name}`.
